@@ -5,12 +5,19 @@ using namespace std;
 int errMessages(int argc)
 {
     if(argc<2)
+    {
         cout<<" Incorrect usage \n"
               " Use as follows :  <shift> <operation> <message>\n";
+        return 1;
+    }
+
     else if(argc<4)
+    {
         cout<<" Not enough parameters \n"
               " Use as follows :  <shift> <operation> <message>\n";
-    return 1;
+        return 1;
+    }
+    return 0;
 }
 
 void encryptMessage(string message, int key)
@@ -34,7 +41,7 @@ void encryptMessage(string message, int key)
 void decryptMessage(string message, int key)
 {
     string clearText;
-    clearText.resize(message.length()); 
+    clearText.resize(message.length());
     for(unsigned int i=0; i<(message.length()); i++)
     {
         if(isalpha(message[i]))
