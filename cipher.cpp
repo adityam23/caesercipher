@@ -34,7 +34,7 @@ void encryptMessage(string message, int key)
 void decryptMessage(string message, int key)
 {
     string clearText;
-    clearText.resize(message.length()); //empty string objects cannot be extended otherwise
+    clearText.resize(message.length()); 
     for(unsigned int i=0; i<(message.length()); i++)
     {
         if(isalpha(message[i]))
@@ -46,7 +46,7 @@ void decryptMessage(string message, int key)
         }
         else clearText[i] = message[i];
     }
-    cout<<" The encrypted message is : "<<clearText<<endl;
+    cout<<" The decrypted message is : "<<clearText<<endl;
 }
 
 int main( int argc, char * argv[] )
