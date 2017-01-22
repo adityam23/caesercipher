@@ -72,6 +72,7 @@ int main( int argc, char * argv[] )
     string operation(argv[2]);
     string message(argv[3]);
     int i = 4;
+    message+=" ";
     while(i < argc)
     {
         message+=argv[i];
