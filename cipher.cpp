@@ -1,10 +1,8 @@
 #include<iostream>
 #include<sstream>//for stringstream
-#include<stdlib.h>
 using namespace std;
 
-void
- errMessages(int argc)
+int errMessages(int argc)
 {
     if(argc<2)
         cout<<" Incorrect usage \n"
@@ -12,8 +10,7 @@ void
     else if(argc<4)
         cout<<" Not enough parameters \n"
               " Use as follows :  <shift> <operation> <message>\n";
-    if(argc<4)
-        exit(1);
+    return 1;
 }
 
 void encryptMessage(string message, int key)
@@ -54,7 +51,10 @@ void decryptMessage(string message, int key)
 
 int main( int argc, char * argv[] )
 {
-    errMessages(argc);
+    int er = 0;
+    er = errMessages(argc);
+    if(er)
+        return 1;
     int shift = 0;
     stringstream converter(argv[1]);
     if(!(converter>>shift))
@@ -76,6 +76,5 @@ int main( int argc, char * argv[] )
     else if(operation=="encrypt")
         encryptMessage(message, shift);
     else cout<<" Use as follows :  <shift> <operation> <message>\n";
-    }
     return 0;
 }
