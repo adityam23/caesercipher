@@ -1,3 +1,4 @@
+#!/usr/bin/python
 import sys
 file=sys.argv[1]
 shift=int(sys.argv[2])
